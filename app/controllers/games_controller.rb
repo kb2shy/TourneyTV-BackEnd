@@ -12,9 +12,7 @@ class GamesController < ApplicationController
 
   def show
     if @game.valid?
-      render :json => { team1score: @game.team1score, team2score: @game.team2score,
-                        teams: {team1: @game.teams[0], team2: @game.teams[1]}},
-                        response: :created
+      render :json => @game, response: :created
     else
       render :json => { error: "Game not found" }, response: :not_found
     end
