@@ -3,11 +3,11 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all.sort
-    render :json => @games.map do |game|
-                      return {id: game.id, court: game.courtnum,
-                       team1score: game.team1score, team2score: game.team2score,
-                       team1: game.teams[0], team2: game.teams[1]}
-                    end
+    if @games
+      render :json => @games, response: :ok
+    else
+      render :json => {error: "Games not found"}, response: :not_found
+    end
   end
 
   def show
