@@ -1,5 +1,6 @@
 class Team < ApplicationRecord
   has_many :players
-  belongs_to :game, optional: true
+  has_many :gameschedules
+  has_many :games, through: :gameschedules
   validates :name, :city, presence: true
 end
