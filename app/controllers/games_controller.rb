@@ -12,7 +12,7 @@ class GamesController < ApplicationController
 
   def show
     if @game.valid?
-      render :json => @game, response: :created
+      render :json => @game, response: :ok
     else
       render :json => { error: "Game not found" }, response: :not_found
     end
