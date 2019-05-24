@@ -39,6 +39,11 @@ class PlayersController < ApplicationController
     end
   end
 
+  def destroy
+    Player.find(params[:id]).destroy
+    redirect_to @players
+  end
+
   private
 
   def set_player
