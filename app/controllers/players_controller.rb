@@ -18,6 +18,16 @@ class PlayersController < ApplicationController
     end
   end
 
+  def create
+    @player = Player.new(player_params)
+    if @player.valid?
+      @player.save
+      redirect_to @player
+    else
+      render :json => {error: "Player account cannot be created"}, response: :unprocessable_entity
+    end
+  end
+
   def edit
   end
 
