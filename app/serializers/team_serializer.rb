@@ -3,7 +3,7 @@ class TeamSerializer < ActiveModel::Serializer
   def players
     self.object.players.map do |player|
       {id: player.id, firstname: player.firstname, lastname: player.lastname, position: player.position,
-       jersey: player.jersey}
+       jersey: player.jersey, image: player.image}
     end
   end
 end
