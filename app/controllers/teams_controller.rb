@@ -2,7 +2,12 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update]
 
   def index
-    @teams = Team.all
+    @teams = Team.all.sort
+    if @teams
+      render :json => @teams, response: :ok
+    else
+      render :json => {error: "Teams not found"}, response: :not_found
+    end
   end
 
   def new
@@ -44,6 +49,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :city)
+    params.require(:team).permit(:name, :city, :image)
   end
 end
