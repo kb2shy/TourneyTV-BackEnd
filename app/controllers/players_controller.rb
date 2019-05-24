@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update]
 
   def index
-    @players = Player.all
+    @players = Player.all.sort
     if @players
       render :json => @players, response: :ok
     else
