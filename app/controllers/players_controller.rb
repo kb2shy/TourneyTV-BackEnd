@@ -29,6 +29,10 @@ class PlayersController < ApplicationController
     end
   end
 
+  def profile
+    render :json => { player: PlayerSerializer.new(current_user)}, status: :accepted
+  end
+
   def edit
   end
 
