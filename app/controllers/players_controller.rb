@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update]
+  skip_before_action :authorized, only: [:create]
 
   def index
     @players = Player.all.sort
@@ -19,12 +20,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
+    @player = Player.create(player_params)
     if @player.valid?
-      @player.save
-      redirect_to @player
+      @token = encode_token(player_id: @player.id)
+      render :json => {player: PlayerSerializer.new(@player), jwt: @token}, status: :created
     else
-      render :json => {error: "Player account cannot be created"}, response: :unprocessable_entity
+      render :json => {error: "Player account cannot be created"}, response: :not_acceptable
     end
   end
 
