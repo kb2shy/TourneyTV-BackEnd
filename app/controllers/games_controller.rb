@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update]
+  skip_before_action :authorized
 
   def index
     @games = Game.all.sort

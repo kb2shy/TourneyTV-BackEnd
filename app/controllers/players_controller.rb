@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update]
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized
 
   def index
     @players = Player.all.sort
