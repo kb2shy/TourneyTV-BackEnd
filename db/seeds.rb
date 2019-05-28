@@ -24,7 +24,7 @@
 # Player.find(23).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
 # Player.find(24).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
 
-@players = Player.all.sort
-@players.each do |player|
-  player.update(password: "123")
-end
+# @players = Player.all.sort
+# @players.each do |player|
+#   player.update(password: "123")
+# end
