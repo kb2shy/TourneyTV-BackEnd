@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update]
-  skip_before_action :authorized
+  skip_before_action :authorized, only: [:create]
 
   def index
     @players = Player.all.sort
@@ -33,8 +33,8 @@ class PlayersController < ApplicationController
   end
 
   def update
-    if @game.update(player_params)
-      redirect_to @player
+    if @player.update(player_params)
+      render :json => @player, response: :accepted
     else
       render :json => {error: "Cannot update player"}, response: :unprocessable_entity
     end
@@ -52,6 +52,8 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:username, :password, :firstname, :lastname, :image, :position, :jersey, :team_id)
+    params.require(:player).permit(:id, :username, :password_digest, :firstname,
+      :lastname, :image, :position, :jersey, :isScoreKeeper,
+      :isTeamCaptain)
   end
 end
