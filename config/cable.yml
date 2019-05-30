@@ -6,5 +6,8 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: <%= ENV.fetch("REDIS_URL") { "redis://h:p72b4a25256d656797e5c9c8d66be549adbe16a222a21c420ec5dc43cfda26bda@ec2-34-226-33-83.compute-1.amazonaws.com:30859" } %>
   channel_prefix: vb-backend_production
+  host: ec2-34-226-33-83.compute-1.amazonaws.com
+  port: 30859
+  password: p72b4a25256d656797e5c9c8d66be549adbe16a222a21c420ec5dc43cfda26bda
