@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
 
   def destroy
     Player.find(params[:id]).destroy
-    redirect_to @players
+    render :json => {message: "Player deleted"}, response: :success
   end
 
   private
