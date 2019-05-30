@@ -6,23 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'faker'
+require 'faker'
 
-# Player.find(10).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(11).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(12).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(13).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(14).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(15).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(16).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(17).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(18).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(19).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(20).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(21).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(22).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(23).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
-# Player.find(24).update(image: "https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Penguin_5c5250a8ad2683.23365592.jpg?itok=FJMNf6yw")
+position = ["Setter", "Outside", "Middle", "Opposite", "Libero", "Defensive Specialist"]
+count = 2
+
+35.times do
+  firstname = Faker::Name.male_first_name
+  lastname = Faker::Name.unique.last_name
+  username = firstname + lastname
+  position = position[rand(0..5)]
+  Player.create(
+    username: username,
+    password: "123",
+    firstname: firstname,
+    lastname: lastname,
+    image: "https://randomuser.me/api/portraits/men/" + count + ".jpg",
+    jersey: rand(1..99),
+    position: position,
+    isScoreKeeper: false,
+    isTeamCaptain: false,
+  )
+end
 
 # @players = Player.all.sort
 # @players.each do |player|
