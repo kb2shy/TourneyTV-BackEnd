@@ -1,5 +1,5 @@
 # Tourney TV
-### Full Stack Web Application designed and developed by Chhaian Pin
+### Full Stack Web Application designed and developed by [Chhaian Pin](http://chhaianpin.herokuapp.com)
 
 ## Premise
 Minimal viable product of a full-stack volleyball tournament web application
@@ -13,32 +13,30 @@ real time.
 
 ## How to use
 * Run PostgreSQL database on local drive to generate own data.
-* Clone [TourneyTV-FrontEnd](https://github.com/kb2shy/TourneyTV-FrontEnd)
-repository onto local drive.
-* Run 'npm start'.
 * Clone [TourneyTV-BackEnd](https://github.com/kb2shy/TourneyTV-BackEnd)
 repository onto local drive.
-* Run 'rails s'.
+* Run 'rails s'. This will run on 'localhost:3000'.
+* Clone [TourneyTV-FrontEnd](https://github.com/kb2shy/TourneyTV-FrontEnd)
+repository onto local drive.
+* Run 'npm start'. This should run on 'localhost:3001'.
 
 ## Use cases
-* Find created criminal cases in database
-* View court date session that has cases scheduled
-* Get police reports filed on specific dates
-* Filter police reports by crime and date
-* Create criminal case files based on results generated
-* Update case files with specific case information or docket entries
+* Register, edit, and delete player profile
+* View and edit game scores
+* View player and team profiles
 
 ## Video Demo
-[Project Demo: Crime Reports](https://youtu.be/h5ghSfwDBXI)
+[Project Demo: Tourney TV](https://youtu.be/sbjP9xrQZOY)
 
 ## Future Features
-* Create a model in the backend that stores each criminal's information
-* Criminals can have multiple cases
-* Criminals can have multiple hearings
-* Criminals can be charged with multiple charges from the same occurrence
+* Allow tournament administrators to create game schedules
+* When players register, they must finish updating their player profile
+* Users can upload photos and videos
+* Users can chat or post messages on the platform
 
 ## Project status
-Currently a minimal viable product and sample demo.
+Currently a minimal viable product and sample demo of proficiencies with
+React, Ruby on Rails, JavaScript, Semantic UI, HTML, CSS, and PostgreSQL.
 
-## Authors and acknowledgment
-Appreciation extended to the Instructors/TCFs Steve Geluso, Cody Green, and Jamilah McWilliams with Flatiron School for their guidance, advice, and code review. Shoutout to Joshua Loran for helping me with extending my backend server.
+## License
+All rights reserved.
